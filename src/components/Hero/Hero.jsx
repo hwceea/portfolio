@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+﻿import React, { useState, useEffect } from 'react'
 import './Hero.css'
 
 const navItems = [
@@ -27,7 +27,8 @@ export default function Hero() {
 
   return (
     <>
-      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <nav className={
+avbar }>
         <div className="nav-inner">
           <a href="#hero" className="nav-logo" onClick={(e) => scrollTo(e, '#hero')}>黄伟诚</a>
           <div className="nav-links">
@@ -42,16 +43,8 @@ export default function Hero() {
       </nav>
 
       <section id="hero" className="hero">
-        <div className="hero-video-wrapper">
-          <video
-            className="hero-video"
-            src="/assets/hero-bg.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster="/assets/photo/digital/_L0A0054.jpg"
-          />
+        <div className="hero-bg-wrapper">
+          <div className="hero-bg-image" />
           <div className="hero-overlay" />
         </div>
 
