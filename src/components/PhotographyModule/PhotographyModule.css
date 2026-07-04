@@ -1,0 +1,56 @@
+﻿.photo-section { padding: 120px 0; background: #0a0a0a; }
+.photo-tabs { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 3rem; }
+.photo-tab {
+  padding: 0.65rem 2rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: transparent;
+  color: #888888;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  font-family: inherit;
+}
+.photo-tab:hover { color: #ffffff; border-color: rgba(255,255,255,0.2); }
+.photo-tab.active { background: #c9a84c; color: #0a0a0a; border-color: #c9a84c; }
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.photo-item {
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 3/2;
+  animation: fadeInUp 0.5s ease both;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.photo-item:hover { transform: scale(1.03); border-color: rgba(255,255,255,0.15); z-index: 2; }
+.photo-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.photo-item:hover img { transform: scale(1.08); }
+.photo-lightbox {
+  position: fixed;
+  inset: 0; z-index: 2000;
+  background: rgba(0,0,0,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  animation: photoFadeIn 0.3s ease;
+}
+.photo-lightbox-content { position: relative; max-width: 90vw; max-height: 90vh; }
+.photo-lightbox-content img { max-width: 100%; max-height: 85vh; object-fit: contain; }
+.photo-lightbox-close {
+  position: absolute;
+  top: -40px; right: 0;
+  background: none; border: none;
+  color: white; font-size: 2rem;
+  cursor: pointer; opacity: 0.6;
+  transition: opacity 0.3s;
+}
+.photo-lightbox-close:hover { opacity: 1; }
+@keyframes photoFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 1200px) { .photo-grid { grid-template-columns: repeat(3,1fr); } }
+@media (max-width: 768px) { .photo-grid { grid-template-columns: repeat(2,1fr); } }
